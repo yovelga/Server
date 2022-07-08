@@ -28,7 +28,7 @@ def outer_source_func():
 
 
 
-
+#-------------------------------------------------------------------------------------------------------part a
 #Insert User
 @assignment4.route('/insert_user', methods=['GET', 'POST'])
 def insert_user():
@@ -150,7 +150,21 @@ def update_user():
         session['update_message'] = "User Updated Successfully!"
     return redirect('/assignment4')
 
-# Part B
+
+
+
+#  All Users ---------------------------------------------------------------------------------------------------------
+@assignment4.route('/select_users')
+def select_users():
+    query = "select * from users"
+    users_list = interact_db(query, query_type='fetch')
+    return render_template('assignment4.html', users=users_list)
+
+
+
+
+
+
 # USERS
 @assignment4.route('/assignment4/users')
 def get_users_in_json():
@@ -167,7 +181,7 @@ def get_users_in_json():
         users_dict[user_id] = user_dict
     return jsonify(users_dict)
 
-
+# Part B----------------------------------------------------------------------------------------------------------------
 #-Back-End
 
 @assignment4.route('/fetch_be')
@@ -182,7 +196,6 @@ def fetch_be_func():
         if request.args['type'] == 'sync':
             res = requests.get(f'https://reqres.in/api/users')
             users_data = res.json()
-            # print(res.json())
             users.append(users_data['data'])
         for user in users[0]:
             if user['id'] == id:
