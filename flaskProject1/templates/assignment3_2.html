@@ -1,0 +1,65 @@
+
+
+{% extends 'base.html' %}
+{% block tohen %}
+
+
+    <div id="Page">
+        <div id="title">
+            <h1> Assianment 3.2 Page</h1>
+            {{ super() }}
+            {% if session['logedin'] %}
+                <h5>User list</h5>
+
+                <form action="/assignment3_2">
+                    <input type="text" name="Username" placeholder="Name">
+                    <input type="submit" value="Find">
+                </form>
+                {% if Username %}
+                    <h2>{{ Username() }}</h2>
+                    <h3>Email: {{ email }}</h3>
+                {% endif %}
+
+                {% if message %}
+                    <h3 style="color: red">{{ message }}</h3>
+                {% endif %}
+
+                {% if user_dict %}
+                    <ol>
+                        {% for k, v in user_dict.items() %}
+                            <li>
+                                <h8>{{ v['name'] }},</h8>
+                                <h8>Email: {{ v['email'] }},</h8>
+                                <h8>Phone Number{{ v['PhoneNumber'] }} </h8>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+
+
+                {% if username %}
+                            <h8>{{ username }}</h8>
+                            <h8>Email: {{ email }}</h8>
+                            <h8>Phone number: {{ phone_number }}</h8>
+                {% endif %}
+
+
+
+
+
+
+
+
+
+
+            {% else %}
+                <h5>Welcome, in order to search for friend details you must first log in</h5>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<header>
+    <nav id="link">
+        <a href="/home">מסך הבית</a> |
+        <a href="/contact">צרו קשר</a> |
+        <a href="/assignment3_1">משימה 3.1</a> |
+        <a href="/assignment3_2">משימה 3.2</a> |
+        <a href="/assignment4">Assignment4</a> |
+        <a href="/assignment4/users">Assignment 4 - Users</a> |
+        <a href="/assignment4/outer_source">Assignment - Outer Source</a> |
+        <a href="/assignment4/restapi_users">Assignment - Restapi</a> |
+        {% if session['logedin'] %}
+            <a href="/log_in">יציאה </a>
+        {% else %}
+            <a href="/log_out">כניסת משתמשים</a>
+        {% endif %} |
+
+
+
+
+    </nav>
+
+
+</header>
+
+

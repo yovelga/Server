@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Catalog{% endblock %}
+
+{% block tohen %}
+
+
+    <div id="Page">
+        <div id="title">
+            <h1> Assianment 3.1 Page</h1>
+            {{ super() }}
+            {% if session['logedin'] %}
+                <h5>Your Catalog</h5>
+
+                <form action="/assignment3_1">
+                    <input type="text" name="product_name" placeholder="Product Name">
+                    <!--
+                                    <input type="text" name="product_color" placeholder="Color">
+                                    <input type="text" name="product_size" placeholder="Size">
+                    -->
+                    <input type="submit" value="Find">
+                </form>
+                {% if product_name %}
+                    <h2>{{ product_name.upper() }}</h2>
+                    <h3> Contact name: {{ product_cotactName }}</h3>
+                {% endif %}
+
+
+                {% if message %}
+                    <h3 style="color: red">{{ message }}</h3>
+                {% endif %}
+
+                {% if catalog_dict %}
+                    <ol>
+                        {% for k, v in catalog_dict.items() %}
+                            <li><h2>{{ k }} Contact name: {{ v }}</h2></li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            {% else %}
+                <h5>Welcome, in order to search for a book you must first log in</h5>
+            {% endif %}
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Assignment4 - Outer Source{% endblock %}
+
+
+
+
+{% block tohen %}
+
+
+
+    <header id="HeaderH" class="header">
+        <h1>Assignment4 - Outer Source</h1>
+    </header><br><br>
+
+
+
+    <div class="assignment4_container">
+
+
+        {#ront end#}
+
+        <div class="user_list">
+            <h2 class="header">Front End</h2>
+            <form>
+                <input type="number" id="user_num_fetch_fe" min="0" max="6">
+            </form>
+            <br>
+
+            <button onclick="fetch_users_fe()">Front End</button>
+            </h4><br><br><br>
+            <main id="fetch_fe_results"></main>
+        </div>
+        <br><br><br>
+
+        {# front end fetch #}
+
+        {#back end#}
+
+        <div class="user_list">
+            <h2 class="header">Back End</h2>
+            <form action="/fetch_be" method="get">
+                <input type="number" id="user_num_fetch_be" name="user_num_fetch_be" min="1" max="6" required>
+                <input type="hidden" name="type" value="sync"><br>
+                <input type="submit" value="Back End"><br><br><br>
+            </form>
+
+
+            {% if session.searched_user %}
+                {% for user in session.searched_user %}
+                    <img src="{{ user.avatar }}" alt="Profile Picture"/>
+                    <div>
+                        <span>{{ user.first_name }}</span>
+                        <br>
+                         <span>{{ user.last_name }}</span>
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        {# back end#}
+
+    </div>
+    {% block javascript %}
+        <script src="{{ url_for('assignment4.static', filename='js/assignment4.js') }}"></script>
+    {% endblock %}
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+    {% include('header.html') %}
+    {% block tohen %}
+            {% if session['logedin'] %}
+            <h4>Welcome, {{ session['username'] | upper() }}</h4>
+
+        {% else %}
+            <h4>Only registered users can use the site</h4>
+        {% endif %}
+    {% endblock %}
+    {% include('style.html') %}
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block tohen %}
+
+
+    </head>
+    <br><br>
+
+    <div id="Page">
+
+        <div id="title">
+            <h1>דף צור קשר </h1>
+        </div>
+        <div id="text">
+            <h2>.בדף זה ניתן לשלוח בקשות ולהשאיר פרטים אישיים על מנת שנוכל ליצור איתך קשר בהמשך <br> .בנוסף על מנת
+                להנעים את
+                זמנך בזמן מילוי הטופס ניתן להאזין לשיר </h2>
+            <br>
+            <audio controls src="../static/firstSong.mp3"></audio>
+
+
+            <br><br><br>
+            <p>
+            <form>
+                <label for="FullName">שם מלא</label>
+                <br>
+                <input type="FullName" id="FullName" name="FullName">
+                <br>
+                <label for="email">אימייל</label>
+                <br>
+                <input type="email" id="email" name="email" maxlength="30">
+                <br>
+                <label for="number">גיל</label>
+                <br>
+                <input type="number" id="age" name="number" max="120" min="5">
+                <br><br>
+                <span>
+        <label for="radio">גבר</label>
+        <input type="radio" name="radio" id="radio">
+        <label for="radio">אישה</label>
+        <input type="radio" name="radio" id="radio">
+    </span>
+                <br>
+
+
+                <label for="text">תוכן ההודעה</label>
+                <br>
+                <input type="text" id="text" name="text" maxlength="120">
+                <br>
+                <label for="file">ניתן לצרף קובץ</label>
+                <br>
+                <input type="file" id="file" name="file">
+                <br>
+                <input type="submit">
+                <br>
+            </form>
+             <button onclick="recomand()">המלץ על ספר</button>
+                <p id="book_rec"></p>
+            </p>
+
+            <br><br><br>
+
+        </div>
+    </div>
+    </body>
+
+
+
+
+
+
+
+    </html>
+{% endblock %}
