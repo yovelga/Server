@@ -8,7 +8,7 @@ import time
 
 
 app = Flask(__name__)
-app.secret_key = '1231'
+app.config.from_pyfile('settings.py')
 app.config['SESSION_PERMANENT'] = True
 app.config['permanent_session_lifetime'] = timedelta(minutes=20)
 

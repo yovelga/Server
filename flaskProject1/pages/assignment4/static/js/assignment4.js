@@ -1,5 +1,5 @@
 function fetch_users_fe() {
-
+    console.log("123")
     fetch('https://reqres.in/api/users').then(
         response => response.json()
     ).then(
